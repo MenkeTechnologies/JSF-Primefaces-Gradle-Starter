@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+    <h:head>
+        <f:facet name="first">
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+            <title>PrimeFaces</title>
+
+
+        </f:facet>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true" styleClass="tommy">
+            <p:layoutUnit position="north" size="200" resizable="true" closable="true" collapsible="true"
+                          styleClass="ui=top">
+                <div style="float: right;" onclick="alert('dogs')">
+                    <a href="https://reallingua.com" class="btn">
+
+                    <span style="font-family: 'Myanmar MN',serif; font-style: italic">
+                    MenkeTechnologies
+                </span>
+                        <span class="fa fa-spinner fa-spin" style="font-size:30px;"/>
+                    </a>
+                </div>
+                <p style="clear: both;"/>
+
+                <p:dataTable paginator="true" multiViewState="true" draggableColumns="true" draggableRows="true">
+                    <p:column>
+                        <f:facet name="header">
+                            First Name
+                        </f:facet>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            Last Name
+                        </f:facet>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            TOmmy Name
+                        </f:facet>
+                    </p:column>
+
+                </p:dataTable>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" size="200" closable="false" collapsible="true" header="right">
+                Footer
+            </p:layoutUnit>
+
+            <p:layoutUnit position="west" size="150" header="Left" collapsible="true">
+                <p:menu>
+                    <p:submenu label="Resources">
+                        <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf"/>
+                        <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html"/>
+                        <p:menuitem value="Forum" url="http://forum.primefaces.org/"/>
+                        <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html"/>
+                    </p:submenu>
+                    <p:submenu label="Resources">
+                        <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf"/>
+                        <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html"/>
+                        <p:menuitem value="Forum" url="http://forum.primefaces.org/"/>
+                        <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html"/>
+                    </p:submenu>
+                    <p:submenu label="Resources">
+                        <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf"/>
+                        <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html"/>
+                        <p:menuitem value="Forum" url="http://forum.primefaces.org/"/>
+                        <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html"/>
+                    </p:submenu>
+                    <p:submenu label="Resources">
+                        <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf"/>
+                        <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html"/>
+                        <p:menuitem value="Forum" url="http://forum.primefaces.org/"/>
+                        <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html"/>
+                    </p:submenu>
+
+                </p:menu>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center" size="200" collapsible="true" header="right">
+                Welcome to PrimeFaces
+                <p:spinner/>
+                <br/>
+                <h5>tommy was here LOL!!!</h5>
+                <h:form id="form">
+                    <p:growl id="msgs" showDetail="true"/>
+                    From:
+                    <p:calendar/>
+                    To:
+                    <p:calendar/>
+
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <p:outputLabel for="date" value="Date: "/>
+                        <p:inputMask id="date" value="#{maskView.date}" mask="99/99/9999"/>
+
+                        <p:outputLabel for="phone" value="Phone:"/>
+                        <p:inputMask id="phone" value="#{maskView.phone}" mask="(999) 999-9999"/>
+
+                        <p:outputLabel for="phoneWithExt" value="Phone with Ext:"/>
+                        <p:inputMask id="phoneWithExt" value="#{maskView.phoneExt}" mask="(999) 999-9999? x99999"/>
+
+                        <p:outputLabel for="taxId" value="Tax Id:"/>
+                        <p:inputMask id="taxId" value="#{maskView.taxId}" mask="99-9999999"/>
+
+                        <p:outputLabel for="ssn" value="SSN:"/>
+                        <p:inputMask id="ssn" value="#{maskView.ssn}" mask="999-99-9999"/>
+
+                        <p:outputLabel for="key" value="Product Key: "/>
+                        <p:inputMask id="key" value="#{maskView.productKey}" mask="a*-999-a999"/>
+
+                    </h:panelGrid>
+
+                </h:form>
+
+                <h:form>
+                    <p:growl id="growl" showDetail="true"/>
+
+                    <h:panelGrid columns="2" columnClasses="left,right" style="width:100%">
+                        <p:chart type="pie" model="#{chartView.pieModel1}" style="width:400px;height:300px">
+                            <p:ajax event="itemSelect" listener="#{chartView.itemSelect}" update="growl"/>
+                        </p:chart>
+
+                        <p:chart type="bar" model="#{chartView.barModel}" style="width:400px;height:300px">
+                            <p:ajax event="itemSelect" listener="#{chartView.itemSelect}" update="growl"/>
+                        </p:chart>
+                    </h:panelGrid>
+
+                    <p:growl id="message" showDetail="true"/>
+
+                    <p:commandButton value="Destroy the World" actionListener="#{dialogView.destroyWorld}"
+                                     update="message">
+                        <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert"/>
+                    </p:commandButton>
+
+                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes"
+                                         icon="ui-icon-check"/>
+                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no"
+                                         icon="ui-icon-close"/>
+                    </p:confirmDialog>
+
+                </h:form>
+
+                <h:form>
+                    <h:inputText value="#{form.text}" required="true"/>
+                    <h:selectOneMenu value="#{form.choice}" required="true">
+                        <f:selectItem itemValue="#{null}"/>
+                        <f:selectItem itemValue="One"/>
+                        <f:selectItem itemValue="Two"/>
+                        <f:selectItem itemValue="Three"/>
+                    </h:selectOneMenu>
+                    <p:commandButton value="Submit" actionListener="#{form.submit   }">
+                        <f:ajax execute="@form" render="@form"/>
+                    </p:commandButton>
+                    <p:messages/>
+
+                    <h:outputText value="#{form.result}"/>
+                </h:form>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="east" size="200" collapsible="true" header="right">
+                <h:form>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+                    <p:commandButton value="Submit"/>
+
+                </h:form>
+
+            </p:layoutUnit>
+
+        </p:layout>
+
+    </h:body>
+
+</f:view>
+</HTML>
+
